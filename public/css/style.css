@@ -130,7 +130,7 @@ input[type=date], input[type=datetime-local], input[type=email], input[type=numb
     color: #555;
 }
 .small .navbar-brand {
-    margin-top: .5rem;
+    margin-top: .1rem;
 }
 
 .nav ul li.active{

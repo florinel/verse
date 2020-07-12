@@ -6,15 +6,36 @@ const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
+const verseRouter = express.Router();
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
+verseRouter.route('/')
+  .get((req, res) => {
+    res.render(
+      'verse',
+      {
+        title: 'verse',
+        nav: [{ link: '/verse', title: 'verse' },
+          { link: '/about', title: 'about' }]
+      }
+    );
+  });
+
+app.use('/verse', verseRouter);
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'verse' });
+  res.render(
+    'index',
+    {
+      title: 'verse',
+      nav: [{ link: '/verse', title: 'verse' },
+        { link: '/about', title: 'about' }]
+    }
+  );
 });
 
 app.listen(port, () => {
