@@ -6,12 +6,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -26,7 +26,7 @@
       <a href="/" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-brand">
         <%for(let i=0; i<nav.length; i++) {%>
         <li>
           <a href="<%=nav[i].link%>"><%=nav[i].title%></a>
@@ -90,19 +90,27 @@
           
           
           <!--/stories-->
-          <div class="row">    
+          
+            <div class="row">    
             <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              Sign Up! Or <a href='/auth/signin'>sign in</a>
-              <form name="signUpForm" action="/auth/signUp" method="post">
-                UserName: <input name="username" id="username"/><br/>
-                Password: <input name="password" id="password"/><br/>
-                <input type="submit" value="Sign up" />
-              </form>
+            
+            <div class="col-md-10 col-sm-9">
+              <h3><%=verse.title%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%=verse.reference%></span>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><%-verse.details.item.text%><br>
             </div>
           </div>
           <hr>
+          <!--/stories-->
           
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
           
         </div>
       </div>
@@ -155,6 +163,6 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
